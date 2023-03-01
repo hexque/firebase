@@ -9,4 +9,5 @@ export type FormProps = {
   options?: Record<string, unknown>;
   validationSchema: any;
   formFieldsComponent: ElementType;
+  extraParams?: Record<string, unknown>;
 };

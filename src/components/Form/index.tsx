@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // libraries
 import React, { FC } from 'react';
@@ -5,7 +6,14 @@ import { Formik, Form as FormikForm } from 'formik';
 // types
 import { FormProps } from 'components/Form/types';
 
-export const Form: FC<FormProps> = ({ submit, formFieldsComponent, initialValues, validationSchema }) => {
+export const Form: FC<FormProps> = ({
+  submit,
+  formFieldsComponent,
+  initialValues,
+  validationSchema,
+  options,
+  extraParams = {}
+}) => {
   const FormFields = formFieldsComponent;
 
   return (
@@ -16,7 +24,11 @@ export const Form: FC<FormProps> = ({ submit, formFieldsComponent, initialValues
       validationSchema={validationSchema}>
       {(props: any) => (
         <FormikForm noValidate>
-          <FormFields {...props} />
+          <FormFields
+            {...props}
+            {...extraParams}
+            options={options}
+          />
         </FormikForm>
       )}
     </Formik>

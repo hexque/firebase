@@ -2,6 +2,7 @@
 import React, { FC } from 'react';
 // components
 import { Button as ButtonAntd } from 'antd';
+import { Spinner } from 'components/Spinner';
 
 type ButtonProps = {
   text: string;
@@ -15,8 +16,8 @@ export const Button: FC<ButtonProps> = ({ text, type, disabled, className, isLoa
   <ButtonAntd
     className={className}
     disabled={disabled}
-    htmlType={type}
-    loading={isLoading}>
+    htmlType={type}>
     {text}
+    {isLoading ? <Spinner /> : null}
   </ButtonAntd>
 );

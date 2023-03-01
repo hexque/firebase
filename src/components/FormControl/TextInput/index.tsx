@@ -13,9 +13,21 @@ type TextInputProps = {
   errors: FormikErrors<FormikValues> | any;
   touched: FormikTouched<FormikValues>;
   type?: 'Password' | 'Search' | 'TextArea';
+  onChange?: (e: React.ChangeEvent<any>) => void;
+  value?: any;
 };
 
-export const TextInput: FC<TextInputProps> = ({ label, name, placeholder, errors, hasFeedback = false, touched, type }) => (
+export const TextInput: FC<TextInputProps> = ({
+  label,
+  name,
+  placeholder,
+  errors,
+  hasFeedback = false,
+  touched,
+  type,
+  onChange,
+  value
+}) => (
   <Form.Item
     hasFeedback={hasFeedback}
     help={touched[name] && errors[name] ? errors[name] : ''}
@@ -24,7 +36,10 @@ export const TextInput: FC<TextInputProps> = ({ label, name, placeholder, errors
       as={type ? Input[type] : Input}
       label={label}
       name={name}
+      onChange={onChange}
       placeholder={placeholder}
+      touched={touched}
+      value={value}
     />
   </Form.Item>
 );
