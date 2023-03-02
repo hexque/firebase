@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "redux-persist-transform-filter": "^0.0.22",
     "yup": "^0.32.11"
   },
   "scripts": {
