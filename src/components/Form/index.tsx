@@ -4,7 +4,7 @@
 import React, { FC } from 'react';
 import { Formik, Form as FormikForm } from 'formik';
 // types
-import { FormProps } from 'components/Form/types';
+import { FormProps } from 'components/Form/interfaces';
 
 export const Form: FC<FormProps> = ({
   submit,

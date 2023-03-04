@@ -4,24 +4,25 @@ import React, { FC } from 'react';
 // components
 import { Input, Form } from 'antd';
 import { Field, FormikErrors, FormikValues, FormikTouched } from 'formik';
+// types
+import { Core } from 'interfaces/core.interface';
 
-type TextInputProps = {
+interface TextInputProps extends Core {
   label?: string;
-  name: string;
   placeholder?: string;
   hasFeedback?: boolean;
-  errors: FormikErrors<FormikValues> | any;
+  error: FormikErrors<FormikValues> | any;
   touched: FormikTouched<FormikValues>;
   type?: 'Password' | 'Search' | 'TextArea';
   onChange?: (e: React.ChangeEvent<any>) => void;
-  value?: any;
-};
+  value?: string;
+}
 
 export const TextInput: FC<TextInputProps> = ({
   label,
   name,
   placeholder,
-  errors,
+  error,
   hasFeedback = false,
   touched,
   type,
@@ -30,8 +31,8 @@ export const TextInput: FC<TextInputProps> = ({
 }) => (
   <Form.Item
     hasFeedback={hasFeedback}
-    help={touched[name] && errors[name] ? errors[name] : ''}
-    validateStatus={touched[name] && errors[name] ? 'error' : 'success'}>
+    help={touched[name] && error[name] ? error[name] : ''}
+    validateStatus={touched[name] && error[name] ? 'error' : 'success'}>
     <Field
       as={type ? Input[type] : Input}
       label={label}

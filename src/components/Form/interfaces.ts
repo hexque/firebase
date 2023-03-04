@@ -3,11 +3,11 @@
 import { ElementType } from 'react';
 import { FormikValues } from 'formik';
 
-export type FormProps = {
+export interface FormProps {
   submit: (values: FormikValues) => void;
   initialValues: Record<string, unknown>;
   options?: Record<string, unknown>;
   validationSchema: any;
   formFieldsComponent: ElementType;
   extraParams?: Record<string, unknown>;
-};
+}
