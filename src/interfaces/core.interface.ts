@@ -3,3 +3,7 @@ export interface Core {
   className?: string;
   disabled?: boolean;
 }
+
+export interface ExtraParams {
+  isLoading: boolean;
+}
