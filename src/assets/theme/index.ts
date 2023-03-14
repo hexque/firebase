@@ -1,6 +1,8 @@
 export const theme = {
   token: {
-    colorPrimary: '#49C1BA',
-    boxShadow: 'none'
+    boxShadow: 'none',
+    borderRadius: 0,
+    colorPrimary: '#000',
+    fontFamily: 'Outfit'
   }
 };
